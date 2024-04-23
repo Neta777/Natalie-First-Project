@@ -3,25 +3,29 @@ import './App.css';
 
 function App() {
   const currentYear = new Date().getFullYear() // declarative
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>Current Year: {currentYear}</p>
-      </header>
-    </div>
-  );
+const newDiv = document.createElement(`div`)
+newDiv.className = `App`
+const theHeader = document.createElement(`header`)
+theHeader.className = `App-header`
+const theImg = document.createElement(`img`)
+theImg.className = `App-logo`
+theImg.alt = "logo"
+theImg.src = logo
+const edit = document.createElement(`p`)
+edit.textContent = 'Edit src/App.js and save to reload.'
+
+const theLink = document.createElement(`a`)
+theLink.className = 'App-link'
+theLink.href = 'https://reactjs.org'
+theLink.target = '_blank'
+theLink.rel = 'noopener noreferrer'
+theLink.textContent = 'Learn React'
+
+const theYear = document.createElement(`p`)
+theYear.textContent = currentYear
+document.body.append(newDiv)
+newDiv.append(theHeader)
+theHeader.append(theImg,edit,theLink,theYear)
 }
-//declarative
+//imperative
 export default App;
