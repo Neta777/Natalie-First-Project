@@ -1,31 +1,22 @@
+import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const currentYear = new Date().getFullYear() // declarative
-const newDiv = document.createElement(`div`)
-newDiv.className = `App`
-const theHeader = document.createElement(`header`)
-theHeader.className = `App-header`
-const theImg = document.createElement(`img`)
-theImg.className = `App-logo`
-theImg.alt = "logo"
-theImg.src = logo
-const edit = document.createElement(`p`)
-edit.textContent = 'Edit src/App.js and save to reload.'
+  const currentYear = new Date().getFullYear()   // declarative
+  const newContainer = React.createElement(
+    'div',
+    { className: 'App' },
+    React.createElement(
+      'header',
+      { className: 'App-header' },
+      React.createElement('img', { className: 'App-logo', src: logo, alt: 'logo' }),
+      React.createElement('p', null, `Edit`, React.createElement('code', null, 'src/App.js'), `and save to reload.`),
+      React.createElement('a', { className: 'App-link', href: 'https://reactjs.org', target: '_blank', rel: 'noopener noreferrer' }, 'Learn React'),
+      React.createElement('p', null, 'Current Year: ', currentYear)
+    )
+  )
 
-const theLink = document.createElement(`a`)
-theLink.className = 'App-link'
-theLink.href = 'https://reactjs.org'
-theLink.target = '_blank'
-theLink.rel = 'noopener noreferrer'
-theLink.textContent = 'Learn React'
-
-const theYear = document.createElement(`p`)
-theYear.textContent = currentYear
-document.body.append(newDiv)
-newDiv.append(theHeader)
-theHeader.append(theImg,edit,theLink,theYear)
+  return newContainer
 }
-//imperative
-export default App;
+export default App
